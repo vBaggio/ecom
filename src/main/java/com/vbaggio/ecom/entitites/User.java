@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +22,7 @@ public class User {
 	
 	private String name;
 	
+	@Column(unique = true)
 	private String email;
 	
 	private String phone;
@@ -31,7 +33,11 @@ public class User {
 	
 	@OneToMany(mappedBy = "client")
 	private List<Order> orders = new ArrayList<>();
-	
+
+	public User() {
+		super();
+	}
+
 	public User(Long id, String name, String email, String phone, LocalDate birthDate, String password) {
 		super();
 		this.id = id;
@@ -40,10 +46,6 @@ public class User {
 		this.phone = phone;
 		this.birthDate = birthDate;
 		this.password = password;
-	}
-
-	public User() {
-		super();
 	}
 
 	public Long getId() {
@@ -93,6 +95,9 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+	public List<Order> getOrders() {
+		return orders;
+	}
 	
 }
