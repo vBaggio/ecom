@@ -118,4 +118,8 @@ public class Order {
 		return Objects.equals(id, other.id);
 	}
 	
+	public Double getTotal() {
+		return this.getItems().stream().map(OrderItem::getSubtotal).reduce(0.0, Double::sum);
+	}
+	
 }

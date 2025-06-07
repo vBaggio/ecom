@@ -9,6 +9,7 @@ import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 import com.vbaggio.ecom.dto.UserDTO;
+import com.vbaggio.ecom.dto.UserMinDTO;
 import com.vbaggio.ecom.entitites.Role;
 import com.vbaggio.ecom.entitites.User;
 
@@ -18,6 +19,8 @@ public interface UserMapper {
 	UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 	
 	UserDTO toDto(User user);
+	
+	UserMinDTO toMinDto(User user);
 	
     default List<String> mapRolesToStrings(Set<Role> roles) {
         if (roles == null) return null;

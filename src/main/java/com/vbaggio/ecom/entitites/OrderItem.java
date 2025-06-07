@@ -76,5 +76,9 @@ public class OrderItem {
 		OrderItem other = (OrderItem) obj;
 		return Objects.equals(id, other.id);
 	}
+	
+	public Double getSubtotal() {
+		return price * quantity;
+	}
 
 }
