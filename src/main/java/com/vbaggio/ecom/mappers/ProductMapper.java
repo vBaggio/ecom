@@ -20,8 +20,10 @@ public interface ProductMapper {
 	ProductMinDTO toMinDto(Product product);
 	
 	@Mapping(target = "id", ignore = true)
+	@Mapping(target = "categories", ignore = true)
 	Product toEntity(ProductDTO dto);
 	
 	@Mapping(target = "id", ignore = true)
+	@Mapping(target = "categories", ignore = true)
 	void updateEntityFromDTO(ProductDTO dto, @MappingTarget Product product);
 }
