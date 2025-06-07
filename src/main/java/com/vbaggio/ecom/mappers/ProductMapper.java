@@ -7,6 +7,7 @@ import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 import com.vbaggio.ecom.dto.ProductDTO;
+import com.vbaggio.ecom.dto.ProductMinDTO;
 import com.vbaggio.ecom.entitites.Product;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
@@ -15,6 +16,8 @@ public interface ProductMapper {
 	ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);
 	
 	ProductDTO toDto(Product product);
+	
+	ProductMinDTO toMinDto(Product product);
 	
 	@Mapping(target = "id", ignore = true)
 	Product toEntity(ProductDTO dto);

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.vbaggio.ecom.dto.ProductDTO;
+import com.vbaggio.ecom.dto.ProductMinDTO;
 import com.vbaggio.ecom.entitites.Product;
 import com.vbaggio.ecom.mappers.ProductMapper;
 import com.vbaggio.ecom.repositories.ProductRepository;
@@ -33,9 +34,9 @@ public class ProductService {
 	}
 
 	@Transactional(readOnly = true)
-	public Page<ProductDTO> findAll(String name, Pageable pageable) {
+	public Page<ProductMinDTO> findAll(String name, Pageable pageable) {
 		Page<Product> result = repository.searchByName(name, pageable);
-		return result.map(x -> ProductMapper.INSTANCE.toDto(x));
+		return result.map(x -> ProductMapper.INSTANCE.toMinDto(x));
 	}
 
 	@Transactional
