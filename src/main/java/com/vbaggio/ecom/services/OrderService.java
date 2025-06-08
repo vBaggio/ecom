@@ -29,11 +29,14 @@ public class OrderService {
 	@Autowired
 	private OrderItemRepository itemRepository;
 	
+	@Autowired
+	private ProductRepository productRepository;
+	
 	@Autowired 
 	private UserService userService;
 	
 	@Autowired
-	private ProductRepository productRepository;
+	private AuthService authService;
 	
 	private void validateProducts(OrderDTO dto) {
 	    Set<Long> productIds = dto.items().stream().map(x -> x.productId()).collect(Collectors.toSet());
@@ -62,6 +65,8 @@ public class OrderService {
 	public OrderDTO findById(Long id) {
 		Order entity = repository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Order not found with id " + id));
+		
+		authService.validateSelfOrAdmin(entity.getClient().getId());
 		
 		return OrderMapper.INSTANCE.toDto(entity);
 	}
