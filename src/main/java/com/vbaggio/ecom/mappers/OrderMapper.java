@@ -28,6 +28,7 @@ public interface OrderMapper {
 				item.getProduct().getName(),
 				item.getPrice(),
 				item.getQuantity(),
+				item.getProduct().getImgUrl(),
 				item.getSubtotal()
 		);
 	}

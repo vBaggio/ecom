@@ -5,6 +5,7 @@ public record OrderItemDTO(
 		String name, 
 		Double price, 
 		Integer quantity,
+		String imgUrl,
 		Double subtotal
 ) {
 	
