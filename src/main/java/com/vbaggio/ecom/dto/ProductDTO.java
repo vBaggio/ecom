@@ -16,7 +16,8 @@ public record ProductDTO(
 		@NotBlank(message="{NotBlank}")
 		String name, 
 		
-		@Size(max = 120, message="{SizeMax}")
+		@Size(min = 10, message="{SizeMin}")
+		@NotBlank
 		String description, 
 		
 		@NotNull(message="{NotNull}")
