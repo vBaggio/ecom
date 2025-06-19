@@ -49,9 +49,9 @@ git clone https://github.com/vBaggio/ecom.git
 
 ## 📦 Principais Endpoints 
 
-- `POST   /oauth2/token   # Login (obter token JWT)
+- `POST   /oauth2/token   # Login (obter token JWT)`
 - `GET    /products/{id}  # Dados do produto específico`
-- `GET    /products       # Lista paginada de produtos
+- `GET    /products       # Lista paginada de produtos`
 - `POST   /products       # Inserir produto (admin)`
 - `PUT    /products/{id}  # Atualizar dados produto (admin)`
 - `DELETE /products       # Excluir produto (admin)`
